@@ -11,7 +11,13 @@ export const OutputField = styled(Paper)`
 
   & > div {
     height: 100%;
-
     overflow-y: auto;
+
+    & > div {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 `;

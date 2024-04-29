@@ -1,31 +1,43 @@
-import { useState, useMemo } from "react";
-import { decodeGenerator, encode } from "gpt-tokenizer";
+import { useState, useEffect } from 'react';
 
 interface TokenInfo {
   tokens: string[];
-  tokenIDs: number[]
+  tokenIDs: number[];
+  isLoading: boolean;
 }
 
 const useGptTokenizer = (inputText: string): TokenInfo => {
   const [encodedTokens, setEncodedTokens] = useState<number[]>([]);
   const [decodedTokens, setDecodedTokens] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  useMemo(() => {
-    const tokens = encode(inputText);
-    setEncodedTokens(tokens);
+  useEffect(() => {
+    if (inputText !== '') {
+      setIsLoading(true);
+      import('gpt-tokenizer').then(({ encode }) => {
+        const tokens = encode(inputText);
+        setEncodedTokens(tokens);
+        setIsLoading(false);
+      });
+    }
   }, [inputText]);
 
-  useMemo(() => {
-    const tokensArray = Array.from(decodeGenerator(encodedTokens));
-    setDecodedTokens(tokensArray);
-    
+  useEffect(() => {
+    if (encodedTokens.length > 0) {
+      setIsLoading(true);
+      import('gpt-tokenizer').then(({ decodeGenerator }) => {
+        const tokensArray = Array.from(decodeGenerator(encodedTokens));
+        setDecodedTokens(tokensArray);
+        setIsLoading(false);
+      });
+    }
   }, [encodedTokens]);
 
   return {
     tokens: decodedTokens,
-    tokenIDs: encodedTokens
+    tokenIDs: encodedTokens,
+    isLoading,
   };
 };
 
 export default useGptTokenizer;
-

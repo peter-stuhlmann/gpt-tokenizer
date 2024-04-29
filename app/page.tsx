@@ -11,7 +11,7 @@ const HomePage: FC = () => {
   const [inputText, setInputText] = useState<string>('');
   const [displayTokens, setDisplayTokens] = useState<boolean>(true);
 
-  const { tokens, tokenIDs } = useGptTokenizer(inputText);
+  const { tokens, tokenIDs, isLoading } = useGptTokenizer(inputText);
 
   const dataToShow = displayTokens
     ? tokens
@@ -34,7 +34,7 @@ const HomePage: FC = () => {
         </div>
       </Counter>
 
-      <Output tokens={dataToShow} />
+      <Output tokens={dataToShow} isLoading={isLoading} />
     </main>
   );
 };
