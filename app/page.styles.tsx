@@ -8,6 +8,8 @@ export const Counter = styled(Paper)`
   padding: 20px;
   box-sizing: border-box;
   font-size: 20px;
+  background-color: #454545 !important;
+  color: rgb(255, 255, 255) !important;
 
   div {
     display: flex;
@@ -17,4 +19,14 @@ export const Counter = styled(Paper)`
       flex: 0 0 150px;
     }
   }
+`;
+
+export const Loading = styled.section`
+  background-color: #202020;
+  height: 100vh;
+  width: 100%;
+  color: #454545;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

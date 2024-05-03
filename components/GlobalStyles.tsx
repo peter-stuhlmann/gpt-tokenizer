@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: linear-gradient(-45deg, #09041e, #1b0f4e, #261858, #372775);
+    background: linear-gradient(-45deg, #000, #202020, #2e2e2e, #323232, #2e2e2e, #202020);
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
 

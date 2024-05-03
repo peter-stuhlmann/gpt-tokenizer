@@ -8,6 +8,8 @@ export const OutputField = styled(Paper)`
   margin-bottom: 30px;
   padding: 20px;
   box-sizing: border-box;
+  background-color: #454545 !important;
+  color: #000 !important;
 
   & > div {
     height: 100%;
@@ -19,5 +21,9 @@ export const OutputField = styled(Paper)`
       justify-content: center;
       align-items: center;
     }
+  }
+
+  .MuiCircularProgress-root {
+    color: #202020;
   }
 `;

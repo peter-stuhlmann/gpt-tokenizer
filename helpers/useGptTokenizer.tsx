@@ -12,6 +12,11 @@ const useGptTokenizer = (inputText: string): TokenInfo => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    if (inputText === '') {
+      setEncodedTokens([]);
+      setDecodedTokens([]);
+    }
+
     if (inputText !== '') {
       setIsLoading(true);
       import('gpt-tokenizer').then(({ encode }) => {

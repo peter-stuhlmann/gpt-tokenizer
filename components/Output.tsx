@@ -3,11 +3,11 @@ import { OutputField } from './Output.styles';
 import { CircularProgress } from '@mui/material';
 
 const colors: string[] = [
-  'rgba(107,64,216,0.3)',
-  'rgba(104,222,122,0.4)',
-  'rgba(244,172,54,0.4)',
-  'rgba(239,65,70,0.3)',
-  'rgba(39,181,234,0.3)',
+  '#b5a0e9',
+  '#00ff26',
+  '#f7ff63',
+  '#ff6f74',
+  '#6cd8ff',
 ];
 
 const Output = ({
@@ -19,7 +19,7 @@ const Output = ({
 }) => (
   <OutputField>
     <div>
-      {isLoading ? (
+      {!isLoading ? (
         <div>
           <CircularProgress />
         </div>

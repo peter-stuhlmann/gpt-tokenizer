@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
 
-import Footer from '@/components/Footer';
 import { GlobalStyles } from '@/components/GlobalStyles';
 import StyledComponentsRegistry from '@/components/StyledComponentsRegistry';
 
@@ -23,10 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <StyledComponentsRegistry>
         <GlobalStyles />
-        <body className={inter.className}>
-          {children}
-          <Footer />
-        </body>
+        <body className={inter.className}>{children}</body>
       </StyledComponentsRegistry>
     </html>
   );
