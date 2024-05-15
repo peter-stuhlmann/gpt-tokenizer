@@ -19,7 +19,7 @@ const Output = ({
 }) => (
   <OutputField>
     <div>
-      {!isLoading ? (
+      {isLoading ? (
         <div>
           <CircularProgress />
         </div>
